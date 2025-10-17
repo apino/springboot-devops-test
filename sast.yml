@@ -1,0 +1,8 @@
+jobs:
+  - job: SAST
+    displayName: "Static Code Analysis (simulated)"
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - script: echo "Simulating SAST Scan... (SonarQube, Checkstyle, etc.)"
+        displayName: "Run static analysis"

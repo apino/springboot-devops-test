@@ -1,0 +1,14 @@
+jobs:
+  - job: Deploy
+    displayName: "Simulated deployment"
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - download: current
+        artifact: springboot-devops
+
+      - script: |
+          echo "Simulating deploy of springboot-devops.jar..."
+          echo "Copying JAR to /opt/app/ (simulated)"
+          echo "Starting app (simulated): java -jar /opt/app/springboot-devops.jar"
+        displayName: "Deploy artifact"

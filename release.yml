@@ -1,0 +1,21 @@
+jobs:
+  - job: Release
+    displayName: "Publish Artifact to Azure Artifacts"
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+      - download: current
+        artifact: springboot-devops
+
+      - script: |
+          echo "Verifying .jar file before publishing..."
+          ls $(Pipeline.Workspace)/springboot-devops
+          echo "Artifact ready for publishing to Azure Artifacts."
+        displayName: "Validate artifact"
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Pipeline.Workspace)/springboot-devops'
+          ArtifactName: 'springboot-devops.jar'
+          publishLocation: 'Container'
+        displayName: "Publish .jar artifact"

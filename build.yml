@@ -1,0 +1,19 @@
+jobs:
+  - job: Build
+    displayName: "Compile using custom Docker image"
+    pool:
+      vmImage: ubuntu-latest
+    container:
+      image: apinoo/mvn-runner-test:latest
+
+    steps:
+      - checkout: self
+
+      - script: |
+          echo "🏗️ Compilando proyecto con Maven..."
+          mvn -B clean package -DskipTests
+          ls -l target/
+        displayName: "Build JAR inside custom runner"
+
+      - publish: $(System.DefaultWorkingDirectory)/target
+        artifact: springboot-devops
