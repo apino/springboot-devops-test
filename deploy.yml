@@ -1,14 +1,31 @@
 jobs:
   - job: Deploy
-    displayName: "Simulated deployment"
+    displayName: "Simulated remote deployment"
     pool:
       vmImage: ubuntu-latest
+
     steps:
       - download: current
         artifact: springboot-devops
 
       - script: |
-          echo "Simulating deploy of springboot-devops.jar..."
-          echo "Copying JAR to /opt/app/ (simulated)"
-          echo "Starting app (simulated): java -jar /opt/app/springboot-devops.jar"
-        displayName: "Deploy artifact"
+          echo "===== Deploy simulado ====="
+          echo ""
+          echo "Paso 1: Asegurar directorios remotos"
+          echo "ssh -i ~/.ssh/id_rsa user@your-server 'mkdir -p /opt/app/backup /opt/app/deploy'"
+          echo ""
+          echo "Paso 2: Respaldar version previa si existe"
+          echo "ssh -i ~/.ssh/id_rsa user@your-server 'if [ -f /opt/app/deploy/springboot-devops.jar ]; then cp /opt/app/deploy/springboot-devops.jar /opt/app/backup/springboot-devops-$(date +%Y%m%d%H%M%S).jar; fi'"
+          echo ""
+          echo "Paso 3: Copiar el nuevo jar al servidor remoto"
+          echo "scp -i ~/.ssh/id_rsa springboot-devops.jar user@your-server:/opt/app/deploy/springboot-devops.jar"
+          echo ""
+          echo "Paso 4: Reiniciar la app"
+          echo "ssh -i ~/.ssh/id_rsa user@your-server 'pkill -f springboot-devops.jar || true'"
+          echo "ssh -i ~/.ssh/id_rsa user@your-server 'nohup java -jar /opt/app/deploy/springboot-devops.jar > /opt/app/app.log 2>&1 &'"
+          echo ""
+          echo "Paso 5: Validar que la app está ejecutandose"
+          echo "ssh -i ~/.ssh/id_rsa user@your-server 'ps aux | grep springboot-devops.jar'"
+          echo ""
+          echo "===== Deploy finalizado (simulado) ====="
+        displayName: "Simulate remote deployment via SSH/SCP"
