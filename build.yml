@@ -10,6 +10,8 @@ jobs:
       - checkout: self
 
       - script: |
+          echo "Comprobando imagen Docker personalizada..."
+          cat /builder-info.txt || echo "No se encontró el archivo, probablemente no es la imagen personalizada."
           echo "🏗️ Compilando proyecto con Maven..."
           mvn -B clean package -DskipTests
           ls -l target/

@@ -6,5 +6,4 @@ LABEL builder="custom-springboot-builder"
 
 RUN echo "Imagen personalizada de Alejandro cargada correctamente" > /builder-info.txt
 
-# Opcional: mostrar el mensaje al inicio de cada job
 CMD cat /builder-info.txt && bash
