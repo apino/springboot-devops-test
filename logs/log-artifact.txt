@@ -1,0 +1,239 @@
+2025-10-18T22:22:27.5765247Z ##[section]Starting: Publish Artifact to Azure Artifacts
+2025-10-18T22:22:27.7517291Z ##[section]Starting: Initialize job
+2025-10-18T22:22:27.7520233Z Agent name: 'Hosted Agent'
+2025-10-18T22:22:27.7520603Z Agent machine name: 'runnervm23b7r'
+2025-10-18T22:22:27.7520784Z Current agent version: '4.261.0'
+2025-10-18T22:22:27.7542792Z ##[group]Runner Image Provisioner
+2025-10-18T22:22:27.7543025Z Hosted Compute Agent
+2025-10-18T22:22:27.7543184Z Version: 20251013.424
+2025-10-18T22:22:27.7543352Z Commit: cfdd8bfed34d71a55b72df4d2e82343c3fc2bab3
+2025-10-18T22:22:27.7543548Z Build Date: 2025-10-13T20:22:23Z
+2025-10-18T22:22:27.7543707Z ##[endgroup]
+2025-10-18T22:22:27.7543852Z ##[group]Operating System
+2025-10-18T22:22:27.7543995Z Ubuntu
+2025-10-18T22:22:27.7544121Z 24.04.3
+2025-10-18T22:22:27.7544235Z LTS
+2025-10-18T22:22:27.7544360Z ##[endgroup]
+2025-10-18T22:22:27.7544502Z ##[group]Runner Image
+2025-10-18T22:22:27.7544648Z Image: ubuntu-24.04
+2025-10-18T22:22:27.7544797Z Version: 20251014.76.1
+2025-10-18T22:22:27.7545170Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251014.76/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-18T22:22:27.7545452Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251014.76
+2025-10-18T22:22:27.7545638Z ##[endgroup]
+2025-10-18T22:22:27.7548172Z Current image version: '20251014.76.1'
+2025-10-18T22:22:27.8364627Z Agent running as: 'vsts'
+2025-10-18T22:22:27.8409786Z Prepare build directory.
+2025-10-18T22:22:27.8605447Z Set build variables.
+2025-10-18T22:22:27.8619887Z Download all required tasks.
+2025-10-18T22:22:27.8680035Z Downloading task: DownloadPipelineArtifact (1.230.0)
+2025-10-18T22:22:28.0629979Z Downloading task: CmdLine (2.250.1)
+2025-10-18T22:22:28.6222044Z Downloading task: PublishBuildArtifacts (1.247.1)
+2025-10-18T22:22:29.1811073Z Checking job knob settings.
+2025-10-18T22:22:29.1815456Z    Knob: DockerActionRetries = true Source: $(VSTSAGENT_DOCKER_ACTION_RETRIES) 
+2025-10-18T22:22:29.1816110Z    Knob: AgentToolsDirectory = /opt/hostedtoolcache Source: ${AGENT_TOOLSDIRECTORY} 
+2025-10-18T22:22:29.1818258Z    Knob: UseGitLongPaths = true Source: $(USE_GIT_LONG_PATHS) 
+2025-10-18T22:22:29.1821577Z    Knob: EnableIssueSourceValidation = true Source: $(ENABLE_ISSUE_SOURCE_VALIDATION) 
+2025-10-18T22:22:29.1822933Z    Knob: AgentEnablePipelineArtifactLargeChunkSize = true Source: $(AGENT_ENABLE_PIPELINEARTIFACT_LARGE_CHUNK_SIZE) 
+2025-10-18T22:22:29.1826606Z    Knob: ContinueAfterCancelProcessTreeKillAttempt = true Source: $(VSTSAGENT_CONTINUE_AFTER_CANCEL_PROCESSTREEKILL_ATTEMPT) 
+2025-10-18T22:22:29.1827714Z    Knob: ProcessHandlerSecureArguments = false Source: $(AZP_75787_ENABLE_NEW_LOGIC) 
+2025-10-18T22:22:29.1828575Z    Knob: ProcessHandlerSecureArguments = false Source: $(AZP_75787_ENABLE_NEW_LOGIC_LOG) 
+2025-10-18T22:22:29.1829306Z    Knob: ProcessHandlerTelemetry = true Source: $(AZP_75787_ENABLE_COLLECT) 
+2025-10-18T22:22:29.1830121Z    Knob: UseNewNodeHandlerTelemetry = True Source: $(DistributedTask.Agent.USENEWNODEHANDLERTELEMETRY) 
+2025-10-18T22:22:29.1830958Z    Knob: ProcessHandlerEnableNewLogic = true Source: $(AZP_75787_ENABLE_NEW_PH_LOGIC) 
+2025-10-18T22:22:29.1832116Z    Knob: EnableResourceMonitorDebugOutput = true Source: $(AZP_ENABLE_RESOURCE_MONITOR_DEBUG_OUTPUT) 
+2025-10-18T22:22:29.1832991Z    Knob: EnableResourceUtilizationWarnings = true Source: $(AZP_ENABLE_RESOURCE_UTILIZATION_WARNINGS) 
+2025-10-18T22:22:29.1834160Z    Knob: IgnoreVSTSTaskLib = true Source: $(AZP_AGENT_IGNORE_VSTSTASKLIB) 
+2025-10-18T22:22:29.1834855Z    Knob: FailJobWhenAgentDies = true Source: $(FAIL_JOB_WHEN_AGENT_DIES) 
+2025-10-18T22:22:29.1835788Z    Knob: CheckForTaskDeprecation = true Source: $(AZP_AGENT_CHECK_FOR_TASK_DEPRECATION) 
+2025-10-18T22:22:29.1836867Z    Knob: CheckIfTaskNodeRunnerIsDeprecated246 = True Source: $(DistributedTask.Agent.CheckIfTaskNodeRunnerIsDeprecated246) 
+2025-10-18T22:22:29.1837947Z    Knob: UseNode20ToStartContainer = True Source: $(DistributedTask.Agent.UseNode20ToStartContainer) 
+2025-10-18T22:22:29.1839779Z    Knob: LogTaskNameInUserAgent = true Source: $(AZP_AGENT_LOG_TASKNAME_IN_USERAGENT) 
+2025-10-18T22:22:29.1840575Z    Knob: UseFetchFilterInCheckoutTask = true Source: $(AGENT_USE_FETCH_FILTER_IN_CHECKOUT_TASK) 
+2025-10-18T22:22:29.1841472Z    Knob: Rosetta2Warning = true Source: $(ROSETTA2_WARNING) 
+2025-10-18T22:22:29.1843418Z    Knob: AddForceCredentialsToGitCheckout = True Source: $(DistributedTask.Agent.AddForceCredentialsToGitCheckout) 
+2025-10-18T22:22:29.1845001Z    Knob: UseSparseCheckoutInCheckoutTask = true Source: $(AGENT_USE_SPARSE_CHECKOUT_IN_CHECKOUT_TASK) 
+2025-10-18T22:22:29.1846084Z    Knob: AgentCDNConnectivityFailWarning = False Source: $(DistributedTask.Agent.AgentCDNConnectivityFailWarning) 
+2025-10-18T22:22:29.1846713Z Finished checking job knob settings.
+2025-10-18T22:22:29.2143748Z Start tracking orphan processes.
+2025-10-18T22:22:29.2322204Z ##[section]Finishing: Initialize job
+2025-10-18T22:22:29.2390006Z ##[section]Async Command Start: DetectDockerContainer
+2025-10-18T22:22:29.2390958Z ##[section]Async Command End: DetectDockerContainer
+2025-10-18T22:22:29.2392662Z ##[section]Async Command Start: DetectDockerContainer
+2025-10-18T22:22:29.2393181Z ##[section]Async Command End: DetectDockerContainer
+2025-10-18T22:22:29.2554633Z ##[section]Starting: Checkout apino/springboot-devops-test@main to s
+2025-10-18T22:22:29.2655786Z ==============================================================================
+2025-10-18T22:22:29.2656934Z Task         : Get sources
+2025-10-18T22:22:29.2657305Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2025-10-18T22:22:29.2657575Z Version      : 1.0.0
+2025-10-18T22:22:29.2657860Z Author       : Microsoft
+2025-10-18T22:22:29.2658665Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2025-10-18T22:22:29.2658937Z ==============================================================================
+2025-10-18T22:22:29.6249333Z Syncing repository: apino/springboot-devops-test (GitHub)
+2025-10-18T22:22:29.8665429Z ##[command]git version
+2025-10-18T22:22:29.8995973Z git version 2.51.0
+2025-10-18T22:22:29.9030680Z ##[command]git lfs version
+2025-10-18T22:22:30.0026037Z git-lfs/3.7.0 (GitHub; linux amd64; go 1.24.4)
+2025-10-18T22:22:30.0030494Z ##[command]git init "/home/vsts/work/1/s"
+2025-10-18T22:22:30.0085176Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-18T22:22:30.0086135Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-18T22:22:30.0087031Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-18T22:22:30.0087728Z hint:
+2025-10-18T22:22:30.0088706Z hint: 	git config --global init.defaultBranch <name>
+2025-10-18T22:22:30.0089371Z hint:
+2025-10-18T22:22:30.0090068Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-18T22:22:30.0090956Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-18T22:22:30.0091627Z hint:
+2025-10-18T22:22:30.0092187Z hint: 	git branch -m <name>
+2025-10-18T22:22:30.0092689Z hint:
+2025-10-18T22:22:30.0093345Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-10-18T22:22:30.0102892Z Initialized empty Git repository in /home/vsts/work/1/s/.git/
+2025-10-18T22:22:30.0121446Z ##[command]git remote add origin https://github.com/apino/springboot-devops-test
+2025-10-18T22:22:30.0213018Z ##[command]git sparse-checkout disable
+2025-10-18T22:22:30.0257512Z ##[command]git config gc.auto 0
+2025-10-18T22:22:30.0318910Z ##[command]git config core.longpaths true
+2025-10-18T22:22:30.0349926Z ##[command]git config --get-all http.https://github.com/apino/springboot-devops-test.extraheader
+2025-10-18T22:22:30.0417281Z ##[command]git config --get-all http.extraheader
+2025-10-18T22:22:30.0466924Z ##[command]git config --get-regexp .*extraheader
+2025-10-18T22:22:30.0509185Z ##[command]git config --get-all http.proxy
+2025-10-18T22:22:30.0547246Z ##[command]git config http.version HTTP/1.1
+2025-10-18T22:22:30.0618749Z ##[command]git --config-env=http.extraheader=env_var_http.extraheader fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin --depth=1  +8bc68be7a70d8080b0c42b06fbf57d19b5f9310a:refs/remotes/origin/8bc68be7a70d8080b0c42b06fbf57d19b5f9310a
+2025-10-18T22:22:30.5164763Z remote: Enumerating objects: 16, done.        
+2025-10-18T22:22:30.5165253Z remote: Counting objects:   6% (1/16)        
+2025-10-18T22:22:30.5165664Z remote: Counting objects:  12% (2/16)        
+2025-10-18T22:22:30.5166091Z remote: Counting objects:  18% (3/16)        
+2025-10-18T22:22:30.5166498Z remote: Counting objects:  25% (4/16)        
+2025-10-18T22:22:30.5166940Z remote: Counting objects:  31% (5/16)        
+2025-10-18T22:22:30.5167337Z remote: Counting objects:  37% (6/16)        
+2025-10-18T22:22:30.5167715Z remote: Counting objects:  43% (7/16)        
+2025-10-18T22:22:30.5168157Z remote: Counting objects:  50% (8/16)        
+2025-10-18T22:22:30.5168855Z remote: Counting objects:  56% (9/16)        
+2025-10-18T22:22:30.5169336Z remote: Counting objects:  62% (10/16)        
+2025-10-18T22:22:30.5169717Z remote: Counting objects:  68% (11/16)        
+2025-10-18T22:22:30.5170539Z remote: Counting objects:  75% (12/16)        
+2025-10-18T22:22:30.5171000Z remote: Counting objects:  81% (13/16)        
+2025-10-18T22:22:30.5171431Z remote: Counting objects:  87% (14/16)        
+2025-10-18T22:22:30.5171824Z remote: Counting objects:  93% (15/16)        
+2025-10-18T22:22:30.5172211Z remote: Counting objects: 100% (16/16)        
+2025-10-18T22:22:30.5172605Z remote: Counting objects: 100% (16/16), done.        
+2025-10-18T22:22:30.5173016Z remote: Compressing objects:  10% (1/10)        
+2025-10-18T22:22:30.5173407Z remote: Compressing objects:  20% (2/10)        
+2025-10-18T22:22:30.5173805Z remote: Compressing objects:  30% (3/10)        
+2025-10-18T22:22:30.5174203Z remote: Compressing objects:  40% (4/10)        
+2025-10-18T22:22:30.5174600Z remote: Compressing objects:  50% (5/10)        
+2025-10-18T22:22:30.5175004Z remote: Compressing objects:  60% (6/10)        
+2025-10-18T22:22:30.5175400Z remote: Compressing objects:  70% (7/10)        
+2025-10-18T22:22:30.5175798Z remote: Compressing objects:  80% (8/10)        
+2025-10-18T22:22:30.5176210Z remote: Compressing objects:  90% (9/10)        
+2025-10-18T22:22:30.5176613Z remote: Compressing objects: 100% (10/10)        
+2025-10-18T22:22:30.5177021Z remote: Compressing objects: 100% (10/10), done.        
+2025-10-18T22:22:30.5177520Z remote: Total 16 (delta 0), reused 13 (delta 0), pack-reused 0 (from 0)        
+2025-10-18T22:22:30.5177968Z From https://github.com/apino/springboot-devops-test
+2025-10-18T22:22:30.5178740Z  * [new ref]         8bc68be7a70d8080b0c42b06fbf57d19b5f9310a -> origin/8bc68be7a70d8080b0c42b06fbf57d19b5f9310a
+2025-10-18T22:22:30.5658968Z ##[command]git --config-env=http.extraheader=env_var_http.extraheader fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin --depth=1  +8bc68be7a70d8080b0c42b06fbf57d19b5f9310a
+2025-10-18T22:22:30.9102481Z remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)        
+2025-10-18T22:22:30.9140661Z From https://github.com/apino/springboot-devops-test
+2025-10-18T22:22:30.9143414Z  * branch            8bc68be7a70d8080b0c42b06fbf57d19b5f9310a -> FETCH_HEAD
+2025-10-18T22:22:30.9642082Z ##[command]git checkout --progress --force refs/remotes/origin/8bc68be7a70d8080b0c42b06fbf57d19b5f9310a
+2025-10-18T22:22:30.9651397Z Note: switching to 'refs/remotes/origin/8bc68be7a70d8080b0c42b06fbf57d19b5f9310a'.
+2025-10-18T22:22:30.9651565Z 
+2025-10-18T22:22:30.9651823Z You are in 'detached HEAD' state. You can look around, make experimental
+2025-10-18T22:22:30.9652116Z changes and commit them, and you can discard any commits you make in this
+2025-10-18T22:22:30.9652412Z state without impacting any branches by switching back to a branch.
+2025-10-18T22:22:30.9652532Z 
+2025-10-18T22:22:30.9652778Z If you want to create a new branch to retain commits you create, you may
+2025-10-18T22:22:30.9653383Z do so (now or later) by using -c with the switch command. Example:
+2025-10-18T22:22:30.9653508Z 
+2025-10-18T22:22:30.9653733Z   git switch -c <new-branch-name>
+2025-10-18T22:22:30.9653832Z 
+2025-10-18T22:22:30.9654067Z Or undo this operation with:
+2025-10-18T22:22:30.9654168Z 
+2025-10-18T22:22:30.9654377Z   git switch -
+2025-10-18T22:22:30.9654471Z 
+2025-10-18T22:22:30.9654725Z Turn off this advice by setting config variable advice.detachedHead to false
+2025-10-18T22:22:30.9654850Z 
+2025-10-18T22:22:30.9655091Z HEAD is now at 8bc68be update deploy
+2025-10-18T22:22:30.9702058Z ##[section]Finishing: Checkout apino/springboot-devops-test@main to s
+2025-10-18T22:22:30.9751319Z ##[section]Starting: Download
+2025-10-18T22:22:30.9761885Z ==============================================================================
+2025-10-18T22:22:30.9762060Z Task         : Download pipeline artifact
+2025-10-18T22:22:30.9762173Z Description  : Download a named artifact from a pipeline to a local path
+2025-10-18T22:22:30.9762331Z Version      : 1.230.0
+2025-10-18T22:22:30.9762424Z Author       : Microsoft Corporation
+2025-10-18T22:22:30.9762541Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/download-pipeline-artifact
+2025-10-18T22:22:30.9762693Z ==============================================================================
+2025-10-18T22:22:31.2399774Z Download from the specified build: #18
+2025-10-18T22:22:31.2405728Z Download artifact to: /home/vsts/work/1/springboot-devops
+2025-10-18T22:22:32.4505449Z Using default max parallelism.
+2025-10-18T22:22:32.4515100Z Max dedup parallelism: 192
+2025-10-18T22:22:32.5797976Z DomainId: 0
+2025-10-18T22:22:32.5798782Z ApplicationInsightsTelemetrySender will correlate events with X-TFS-Session 23145fa2-b56d-48f0-8203-ba416c025087
+2025-10-18T22:22:32.5875414Z Hashtype: Dedup1024K
+2025-10-18T22:22:32.6021048Z DedupManifestArtifactClient will correlate http requests with X-TFS-Session 23145fa2-b56d-48f0-8203-ba416c025087
+2025-10-18T22:22:32.6039905Z Minimatch patterns: [**]
+2025-10-18T22:22:32.9870918Z Filtered 7 files from the Minimatch filters supplied.
+2025-10-18T22:22:32.9966381Z Downloaded 0.0 MB out of 19.8 MB (0%).
+2025-10-18T22:22:33.9000521Z Downloaded 19.8 MB out of 19.8 MB (100%).
+2025-10-18T22:22:33.9008629Z 
+2025-10-18T22:22:33.9010888Z Download statistics:
+2025-10-18T22:22:33.9012670Z Total Content: 19.8 MB
+2025-10-18T22:22:33.9012975Z Physical Content Downloaded: 19.4 MB
+2025-10-18T22:22:33.9013363Z Compression Saved: 0.3 MB
+2025-10-18T22:22:33.9014808Z Local Caching Saved: 0.0 MB
+2025-10-18T22:22:33.9015132Z Chunks Downloaded: 22
+2025-10-18T22:22:33.9015382Z Nodes Downloaded: 0
+2025-10-18T22:22:33.9015513Z 
+2025-10-18T22:22:33.9110296Z Download completed.
+2025-10-18T22:22:34.0145990Z ApplicationInsightsTelemetrySender correlated 2 events with X-TFS-Session 23145fa2-b56d-48f0-8203-ba416c025087
+2025-10-18T22:22:34.0157600Z Downloading artifact finished.
+2025-10-18T22:22:34.0351008Z ##[section]Finishing: Download
+2025-10-18T22:22:34.0369792Z ##[section]Starting: Validate artifact
+2025-10-18T22:22:34.0375034Z ==============================================================================
+2025-10-18T22:22:34.0375137Z Task         : Command line
+2025-10-18T22:22:34.0375205Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2025-10-18T22:22:34.0375291Z Version      : 2.250.1
+2025-10-18T22:22:34.0375353Z Author       : Microsoft Corporation
+2025-10-18T22:22:34.0375426Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2025-10-18T22:22:34.0375537Z ==============================================================================
+2025-10-18T22:22:34.2939293Z Generating script.
+2025-10-18T22:22:34.2948068Z ========================== Starting Command Output ===========================
+2025-10-18T22:22:34.2962174Z [command]/usr/bin/bash --noprofile --norc /home/vsts/work/_temp/33f63d06-7713-4ecf-bafd-fad9f01f5e73.sh
+2025-10-18T22:22:34.3037445Z Verifying .jar file before publishing...
+2025-10-18T22:22:34.3039400Z classes
+2025-10-18T22:22:34.3041381Z generated-sources
+2025-10-18T22:22:34.3042138Z maven-archiver
+2025-10-18T22:22:34.3044162Z maven-status
+2025-10-18T22:22:34.3044437Z springboot-devops-test-1.0.0.jar
+2025-10-18T22:22:34.3044720Z springboot-devops-test-1.0.0.jar.original
+2025-10-18T22:22:34.3045016Z Artifact ready for publishing to Azure Artifacts.
+2025-10-18T22:22:34.3051662Z 
+2025-10-18T22:22:34.3134920Z ##[section]Finishing: Validate artifact
+2025-10-18T22:22:34.3152950Z ##[section]Starting: Publish .jar artifact
+2025-10-18T22:22:34.3158023Z ==============================================================================
+2025-10-18T22:22:34.3158124Z Task         : Publish build artifacts
+2025-10-18T22:22:34.3158189Z Description  : Publish build artifacts to Azure Pipelines or a Windows file share
+2025-10-18T22:22:34.3158273Z Version      : 1.247.1
+2025-10-18T22:22:34.3158614Z Author       : Microsoft Corporation
+2025-10-18T22:22:34.3158689Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/publish-build-artifacts
+2025-10-18T22:22:34.3158799Z ==============================================================================
+2025-10-18T22:22:34.6249708Z ##[section]Async Command Start: Upload Artifact
+2025-10-18T22:22:34.6250710Z Uploading 6 files
+2025-10-18T22:22:38.1153243Z File upload succeed.
+2025-10-18T22:22:38.1153381Z Upload '/home/vsts/work/1/springboot-devops' to file container: '#/5605391/springboot-devops.jar'
+2025-10-18T22:22:38.1153574Z Associated artifact 8 with build 18
+2025-10-18T22:22:38.1153692Z ##[section]Async Command End: Upload Artifact
+2025-10-18T22:22:38.1154635Z ##[section]Finishing: Publish .jar artifact
+2025-10-18T22:22:38.1171844Z ##[section]Starting: Checkout apino/springboot-devops-test@main to s
+2025-10-18T22:22:38.1175407Z ==============================================================================
+2025-10-18T22:22:38.1175510Z Task         : Get sources
+2025-10-18T22:22:38.1175575Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2025-10-18T22:22:38.1175670Z Version      : 1.0.0
+2025-10-18T22:22:38.1175720Z Author       : Microsoft
+2025-10-18T22:22:38.1175777Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2025-10-18T22:22:38.1175850Z ==============================================================================
+2025-10-18T22:22:38.3660148Z Cleaning any cached credential from repository: apino/springboot-devops-test (GitHub)
+2025-10-18T22:22:38.3835150Z ##[section]Finishing: Checkout apino/springboot-devops-test@main to s
+2025-10-18T22:22:38.3857997Z ##[section]Starting: Finalize Job
+2025-10-18T22:22:38.3868210Z Cleaning up task key
+2025-10-18T22:22:38.3870040Z Start cleaning up orphan processes.
+2025-10-18T22:22:38.4093637Z ##[section]Finishing: Finalize Job
+2025-10-18T22:22:38.4115356Z ##[section]Finishing: Publish Artifact to Azure Artifacts
